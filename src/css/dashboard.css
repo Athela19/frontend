@@ -103,6 +103,13 @@
 .navbar-logo-db{
   align-items: center;
   margin-bottom: 1.2rem;
+  display: flex;
+}
+.navbar-logo-db img{
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-top: 1.2rem;
+  margin-right: 0.5rem;
 }
 .navbar-logo-db p {
   color: var(--font);

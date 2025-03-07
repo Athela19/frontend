@@ -22,7 +22,6 @@
 body {
   overflow-x: hidden;
   width: 100vw;
-  padding: 1rem;
   font-family: "Inter", sans-serif;
 }
 
@@ -72,7 +71,7 @@ body {
   position: absolute;
   width: 300px;
   height: 300px;
-  background: var(--sekunder);
+  background: linear-gradient(10deg,var(--primary),var(--sekunder));
   border-radius: 0 50% 50% 50%;
   transition: transform 1s ease-out;
   z-index: -11;
@@ -84,7 +83,7 @@ body {
   left: 85%;
   width: 9rem;
   height: 9rem;
-  background: var(--primary);
+  background: orange;
   border-radius: 50%;
   transform-origin: center; /* Animasi scale berpusat di tengah */
   transition: transform 1s ease-out;
@@ -96,7 +95,7 @@ body {
   left: 60%;
   width: 3rem;
   height: 3rem;
-  background: var(--primary);
+  background: orange;
   border-radius: 50%;
   transform-origin: center; /* Animasi scale berpusat di tengah */
   transition: transform 1s ease-out;
@@ -109,7 +108,7 @@ body {
   width: 7rem;
   height: 7rem;
   background: transparent;
-  border: 3px solid var(--primary);
+  border: 3px solid orange;
   border-radius: 50%;
   transform-origin: center; /* Animasi scale berpusat di tengah */
   transition: transform 1s ease-out;

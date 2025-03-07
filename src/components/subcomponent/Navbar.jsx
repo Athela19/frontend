@@ -6,6 +6,7 @@ import {
   faUser,
   faPlusCircle
 } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../img/logo.png"
 
 function Navbar({ setShowJobForm }) {
   const location = useLocation();
@@ -17,6 +18,7 @@ function Navbar({ setShowJobForm }) {
   return (
     <nav className="navbar-db">
       <div className="navbar-logo-db">
+      <img src={logo} alt="logo"></img>
         <p>
           Find<span>Job</span>.
         </p>
