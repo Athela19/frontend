@@ -20,7 +20,7 @@
   flex-direction: row;
 }
 
-.author-text p {
+.author-text h1 {
   color: rgb(70, 110, 255);
   margin-bottom: 5px;
   font-family: "Inter", sans-serif;
