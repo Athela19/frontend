@@ -6,7 +6,8 @@
   --font: black;
   --tmbl: white;
   --input: #acacac;
-  --sekunder:rgb(0, 170, 255);
+  --sekunder:rgb(115, 206, 251);
+  --tertiary :orange;
 }
 
 * {
@@ -27,7 +28,7 @@ body {
 
 .hero-edit {
   height: 100vh;
-  padding: 7rem;
+  padding: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,7 +43,9 @@ body {
   justify-content: center;
   align-items: flex-start;
   text-align: left;
+  transition: transform 1s ease-out; 
 }
+
 .hero-right {
   flex: 4;
   display: flex;
@@ -52,7 +55,7 @@ body {
 }
 
 .hero-left h1 {
-  font-size: 3rem;
+  font-size: 3.7rem;
   margin: 0;
   font-family: "Inter", sans-serif;
 }
@@ -69,54 +72,49 @@ body {
 
 .hero-circle {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 325px;
+  height: 325px;
   background: linear-gradient(10deg,var(--primary),var(--sekunder));
   border-radius: 0 50% 50% 50%;
   transition: transform 1s ease-out;
   z-index: -11;
 }
 
-.circle-hero:nth-child(1) {
+.circle-hero{
   position: absolute;
+  border-radius: 50%;
+  transform-origin: center; /* Animasi scale berpusat di tengah */
+  transition: transform 1s ease-out;
+  
+}
+.circle-hero:nth-child(1) {
+  z-index: -11; /* Pastikan di belakang konten */
   top: 60%;
   left: 85%;
   width: 9rem;
   height: 9rem;
-  background: orange;
-  border-radius: 50%;
-  transform-origin: center; /* Animasi scale berpusat di tengah */
-  transition: transform 1s ease-out;
-  z-index: -11; /* Pastikan di belakang konten */
+  background: var(--tertiary);
 }
 .circle-hero:nth-child(2) {
-  position: absolute;
-  top: 60%;
-  left: 60%;
-  width: 3rem;
-  height: 3rem;
-  background: orange;
-  border-radius: 50%;
-  transform-origin: center; /* Animasi scale berpusat di tengah */
-  transition: transform 1s ease-out;
+  top: 57%;
+  left: 58%;
+  width: 5rem;
+  height: 5rem;
+  background: var(--tertiary);
   z-index: -1; /* Pastikan di belakang konten */
 }
 .circle-hero:nth-child(3) {
-  position: absolute;
-  top: 30%;
-  left: 87%;
-  width: 7rem;
-  height: 7rem;
+  top: 18%;
+  left: 79%;
+  width: 12rem;
+  height: 12rem;
   background: transparent;
-  border: 3px solid orange;
-  border-radius: 50%;
-  transform-origin: center; /* Animasi scale berpusat di tengah */
-  transition: transform 1s ease-out;
+  border: 4px solid var(--tertiary);
   z-index: -1; /* Pastikan di belakang konten */
 }
 
 .hero-image {
-  max-width: 65%;
+  max-width: 85%;
   height: auto;
   position: relative;
   z-index: 1;

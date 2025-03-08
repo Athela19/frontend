@@ -20,7 +20,7 @@ function Navbar({ setShowJobForm }) {
       <div className="navbar-logo-db">
       <img src={logo} alt="logo"></img>
         <p>
-          Find<span>Job</span>.
+          Find<span>Job</span><span style={{ color: "var(--tertiary)" }}>.</span>
         </p>
       </div>
 
@@ -28,9 +28,9 @@ function Navbar({ setShowJobForm }) {
         // Navbar untuk halaman "/"
         <div className="navbar-menu-db">
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#creator">Creator</a></li>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang kami</a></li>
+            <li><a href="#creator">Pembuat  </a></li>
           </ul>
         </div>
       ) : (
@@ -46,7 +46,7 @@ function Navbar({ setShowJobForm }) {
       {isHomePage && (
         <div className="navbar-signin-db">
           <button className="btn-db" onClick={() => navigate("/login")}>
-            <FontAwesomeIcon icon={faUser} className="icon" /> {" "}Sign In
+            <FontAwesomeIcon icon={faUser} className="icon" /> {" "}Masuk
           </button>
         </div>
       )}
