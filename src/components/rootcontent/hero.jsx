@@ -47,7 +47,7 @@ const Hero = () => {
           <h1>
             Wujudkan <span style={{ color: "var(--tertiary)" }}>Impianmu</span>
           </h1>
-          <p>Mulai langkahmu sekarang dan gapai karier impian bersama kami!</p>
+          <p>Mulai langkahmu sekarang dan gapai impianmu bersama kami!</p>
 
           <button
             className="btn-db"

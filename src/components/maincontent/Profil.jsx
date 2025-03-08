@@ -18,6 +18,7 @@ function Profile() {
   const [src, setSrc] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
   const [showCropModal, setShowCropModal] = useState(false);
+  const [comment, setComment] = useState(""); // State untuk menyimpan komentar
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -105,6 +106,34 @@ function Profile() {
     return new File([u8arr], filename, { type: mime });
   };
 
+  const handleCommentChange = (e) => {
+    setComment(e.target.value); // Update state komentar
+  };
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+  
+    if (!comment.trim()) {
+      toast.error("Komentar tidak boleh kosong");
+      return;
+    }
+  
+    try {
+      await axios.post(
+        "http://localhost:5000/comments",
+        { komentar: comment }, // Sesuaikan dengan backend
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      toast.success("Komentar berhasil dikirim");
+      setComment(""); // Reset input setelah sukses
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Gagal mengirim komentar");
+    }
+  };
+  
+
   return (
     <div className="profile-container">
       <h2 className="profile-title">Profile</h2>
@@ -157,6 +186,21 @@ function Profile() {
           <input type="password" name="password" className="form-input" value={formData.password} onChange={handleChange} />
         </div>
         <button type="submit" className="update-button">Update Profile</button>
+      </form>
+
+      {/* Form untuk mengirim komentar */}
+      <form onSubmit={handleCommentSubmit} className="comment-form">
+        <div className="form-group">
+          <label>Komentar</label>
+          <textarea
+            name="comment"
+            className="form-input"
+            value={comment}
+            onChange={handleCommentChange}
+            placeholder="Masukkan komentar Anda"
+          />
+        </div>
+        <button type="submit" className="comment-button">Kirim Komentar</button>
       </form>
     </div>
   );

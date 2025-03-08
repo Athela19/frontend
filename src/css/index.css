@@ -129,6 +129,15 @@ body {
   overflow: hidden;
 }
 
+.about-circle {
+  position: absolute;
+  width: 19.5rem;
+  height: 1rem;
+  margin-left: 3.2rem;
+  background: lightgrey;
+  border-radius:50%;
+}
+
 .about-edit h2 {
   font-weight: 600;
   text-align: center;
@@ -161,11 +170,6 @@ body {
   padding: 0 1rem;
 }
 
-.about-edit .row-edit .content-edit h4 {
-  font-weight: 510;
-  font-size: 1.2rem;
-}
-
 .about-edit .row-edit .content-edit p {
   margin-bottom: 0.8rem;
   font-size: 1.4rem;
@@ -180,85 +184,12 @@ body {
   padding-top: 7rem;
   min-height: 100vh;
 }
-.bg-content-creator {
-  display: flex;
-  flex-direction: row;
-}
-
-/* Ini untuk background hiasan */
-/* Gaya dasar untuk lingkaran */
-.ling-karan {
-  position: absolute;
-  min-width: 790px;
-  height: 790px;
-  background: blue; /* Warna merah transparan */
-  border-radius: 50%;
-  z-index: -9;
-  right: 0;
-  overflow: hidden;
-  max-width: 100vw;
-  transform: translateY(23%) translateX(23%);
-}
-.ling-karan-sk {
-  position: absolute;
-  min-width: 490px;
-  height: 490px;
-  background: var(--sekunder); /* Warna merah transparan */
-  border-radius: 50%;
-  z-index: -9;
-  right: 0;
-  overflow: hidden;
-  max-width: 100vw;
-  transform: translateY(30%) translateX(-40%);
-}
-.ling-karan-sk1 {
-  position: absolute;
-  min-width: 400px;
-  height: 400px;
-  background: var(--sekunder); /* Warna merah transparan */
-  border-radius: 50%;
-  z-index: -9;
-  right: 0;
-  overflow: hidden;
-  max-width: 100vw;
-  transform: translateY(90%) translateX(-280%);
-}
-
-.ling-karan2 {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: blue; /* Warna merah transparan */
-  border-radius: 50%;
-  z-index: -9;
-  right: 0;
-  transform: translateY(90%);
-}
-.ling-karan3 {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: blue; /* Warna merah transparan */
-  border-radius: 50%;
-  z-index: -9;
-  right: 0;
-  transform: translateX(-600%);
-}
-.ling-karan4 {
-  position: absolute;
-  width: 900px;
-  height: 1000px;
-  background: blue; /* Warna merah transparan */
-  border-radius: 50%;
-  z-index: -9;
-  left: 0;
-  transform: translateX(-30%) translateY(-90%);
-}
 
 /* Judul */
 .title-creator {
   text-align: center;
   margin-bottom: 4rem;
+  font-size: 2.7rem;
 }
 
 /* Konten */
@@ -266,7 +197,25 @@ body {
   display: flex;
   gap: 3rem;
 }
+.bg-content-creator{
+  display: flex;
+  flex-direction: column;
+}
+/* Animasi muncul dari bawah */
+.title-creator,
+.text-creator,
+.photos-creator {
+  opacity: 0;
+  transform: translateY(15rem);
+  transition: opacity 0.6s ease-out, transform 1s ease-out;
+}
 
+.title-creator.visible,
+.text-creator.visible,
+.photos-creator.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* Teks di sebelah kiri */
 .text-creator {
   flex: 1;
@@ -354,3 +303,97 @@ body {
   max-width: 100%; /* Pastikan teks tidak melebihi lebar container */
 }
 
+
+.komentar-container {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.komentar-title {
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.loading-text,
+.no-komentar {
+  color: var(--input);
+}
+
+/* Area carousel */
+.komentar-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scrollCarousel 15s linear infinite;
+}
+
+@keyframes scrollCarousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Setiap card dalam carousel */
+.komentar-card {
+  width: 20rem;
+  height: 20rem;
+  background-color: var(--bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 0 10px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid lightgrey;
+}
+
+/* Header komentar */
+.komentar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid lightgrey; ;
+}
+
+.komentar-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--font);
+}
+
+.komentar-author img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.komentar-date {
+  font-size: 14px;
+  color: var(--font);
+}
+
+/* Teks komentar */
+.komentar-text {
+  font-size: 1rem;
+  margin: 1rem;
+  color: var(--font);
+  word-wrap: break-word; /* Agar kata panjang tidak keluar dari card */
+  overflow: auto; /* Scroll jika terlalu panjang */
+  max-height: 150px; /* Batasi tinggi agar tidak terlalu panjang */
+  white-space: pre-line; 
+}
